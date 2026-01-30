@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment Settings
+    "module": "commonjs", // Node.js uses CommonJS
+    "target": "ES2020", // Modern JS features
+    "lib": ["ES2020"], // Include modern JS features
+    "esModuleInterop": true, // Allow import express from 'express'
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    // Typechecking
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Node types
+    "types": ["node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,111 @@
+# -----------------------------
+# macOS
+# -----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+*.icloud
+
+# -----------------------------
+# Node / general
+# -----------------------------
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+*.lcov
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/Release
+node_modules/
+jspm_packages/
+web_modules/
+*.tsbuildinfo
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.node_repl_history
+*.tgz
+.yarn-integrity
+.cache
+.parcel-cache
+.next
+out
+.nuxt
+dist
+.vuepress/dist
+.temp
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.webpack/
+.svelte-kit
+
+# -----------------------------
+# React / frontend
+# -----------------------------
+client/node_modules/
+client/build/
+client/.env
+**/*.backup.*
+**/*.back.*
+*.sublime*
+psd
+thumb
+sketch
+
+# -----------------------------
+# Backend / Node server
+# -----------------------------
+server/node_modules/
+server/dist/
+server/.env
+
+# -----------------------------
+# Docker / Podman
+# -----------------------------
+docker/.env       # ignore your docker .env
+postgres-data/    # Postgres persistent volume
+
+# -----------------------------
+# VSCode / IDEs
+# -----------------------------
+.vscode/
