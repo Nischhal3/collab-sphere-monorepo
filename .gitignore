@@ -100,7 +100,7 @@ server/dist/
 server/.env
 
 # Local DB config
-server/config.local.json
+server/src/config.local.json
 
 # Postgres persistent data
 postgres-data/

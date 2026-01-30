@@ -1,17 +1,18 @@
+import userRoutes from "./users/routes";
+import { API_VERSION_1 } from "./constants";
 import express, { Request, Response } from "express";
 
 const app = express();
 const PORT = 3001;
 
-// Middleware to parse JSON
 app.use(express.json());
 
-// Test route
+app.use(`/api/${API_VERSION_1}/users`, userRoutes);
+
 app.get("/", (_: Request, res: Response) => {
-  res.send("Hi from Node server on port 3001!");
+  res.send("Welcome to collab sphere");
 });
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
