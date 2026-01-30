@@ -16,4 +16,4 @@ services:
 
     volumes:
       # Local folder -> Postgres data directory inside container
-      - /Users/<username>/Documents/projects/postgres-data:/var/lib/postgresql/data
+      - ../postgres-data:/var/lib/postgresql/data

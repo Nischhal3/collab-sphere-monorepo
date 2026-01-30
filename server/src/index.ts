@@ -1,17 +1,29 @@
+import cors from "cors";
+import dotenv from "dotenv";
+import userRoutes from "./users/routes";
+import { API_VERSION_1 } from "./constants";
 import express, { Request, Response } from "express";
 
-const app = express();
-const PORT = 3001;
+dotenv.config();
 
-// Middleware to parse JSON
+const app = express();
+
 app.use(express.json());
 
-// Test route
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  }),
+);
+
+app.use(`/api/${API_VERSION_1}/users`, userRoutes);
+
 app.get("/", (_: Request, res: Response) => {
-  res.send("Hi from Node server on port 3001!");
+  res.send("Welcome to collab sphere");
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running at http://localhost:${process.env.PORT}`);
 });
