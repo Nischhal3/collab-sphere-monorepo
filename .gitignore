@@ -100,12 +100,6 @@ server/dist/
 server/.env
 
 # -----------------------------
-# Docker / Podman
-# -----------------------------
-docker/.env       # ignore your docker .env
-postgres-data/    # Postgres persistent volume
-
-# -----------------------------
 # VSCode / IDEs
 # -----------------------------
 .vscode/
