@@ -15,25 +15,39 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
 
   backend:
-    image: collabsphere-backend
+    build: ./server
     container_name: backend
     restart: unless-stopped
     depends_on:
       - postgres
     env_file:
       - server/.env
+    environment:
+      - NODE_ENV=production
     expose:
       - "3001"
+
+  frontend:
+    build: ./client
+    container_name: frontend
+    restart: unless-stopped
+    volumes:
+      - frontend_build:/dist # share build with nginx
 
   nginx:
     image: nginx:alpine
     container_name: nginx
-    ports:
-    - "8443:443"   # HTTPS
-    - "8080:8080"  # HTTP redirect (optional)
-
+    restart: unless-stopped
     depends_on:
       - backend
+      - frontend
+    ports:
+      - "8443:443"
+      - "8080:8080"
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./docker/nginx/certs:/etc/nginx/certs:ro
+      - frontend_build:/usr/share/nginx/html:ro
+
+volumes:
+  frontend_build:

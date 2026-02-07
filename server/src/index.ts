@@ -11,10 +11,15 @@ const PORT = Number(process.env.PORT) || 3001;
 
 app.use(express.json());
 
+const allowedOrigin =
+  process.env.NODE_ENV === "development"
+    ? process.env.CLIENT_DEV_URL
+    : process.env.CLIENT_PROD_URL;
+
 app.use(
   cors({
     credentials: true,
-    origin: process.env.CLIENT_URL,
+    origin: allowedOrigin,
     methods: ["GET", "POST", "PUT", "DELETE"],
   }),
 );
