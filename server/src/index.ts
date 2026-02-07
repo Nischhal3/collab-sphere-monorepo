@@ -7,13 +7,19 @@ import express, { Request, Response } from "express";
 dotenv.config();
 
 const app = express();
+const PORT = Number(process.env.PORT) || 3001;
 
 app.use(express.json());
+
+const allowedOrigin =
+  process.env.NODE_ENV === "development"
+    ? process.env.CLIENT_DEV_URL
+    : process.env.CLIENT_PROD_URL;
 
 app.use(
   cors({
     credentials: true,
-    origin: process.env.CLIENT_URL,
+    origin: allowedOrigin,
     methods: ["GET", "POST", "PUT", "DELETE"],
   }),
 );
@@ -24,6 +30,6 @@ app.get("/", (_: Request, res: Response) => {
   res.send("Welcome to collab sphere");
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Backend running at http://localhost:${PORT}`);
 });

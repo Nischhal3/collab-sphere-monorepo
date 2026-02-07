@@ -109,3 +109,6 @@ postgres-data/
 # VSCode / IDEs
 # -----------------------------
 .vscode/
+
+# SSL certs
+/docker/nginx/certs/
