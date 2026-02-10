@@ -1,8 +1,8 @@
-import LandingPage from "./components/landing-page/LandingPage";
+import LandingPage from "./pages/landing-page/LandingPage";
 
 function App() {
   return (
-    <div className="bg-background w-full h-full">
+    <div className="bg-white w-full h-full">
       <LandingPage />
     </div>
   );
