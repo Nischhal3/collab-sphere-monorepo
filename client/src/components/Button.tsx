@@ -7,6 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string;
   cursor?: string;
   size?: ButtonSize;
+  textColor?: string;
   borderColor?: string;
 }
 
@@ -23,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   size = "medium",
   disabled = false,
   color = "bg-white",
+  textColor = "text-black",
   cursor = "cursor-pointer",
   borderColor = "border-black",
   ...props
@@ -33,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${color} ${cursor} text-black border ${borderColor} rounded ${sizeClass} ${className} ${
+      className={`${color} ${cursor} ${textColor} border ${borderColor} rounded ${sizeClass} ${className} ${
         disabled ? "opacity-75 cursor-not-allowed" : ""
       }`}
       {...props}
