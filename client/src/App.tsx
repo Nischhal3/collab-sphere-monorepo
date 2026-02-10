@@ -1,11 +1,9 @@
-import "./App.css";
-import UserList from "./components/UserList";
+import LandingPage from "./components/landing-page/LandingPage";
 
 function App() {
   return (
-    <div className="App">
-      <p>Dev-Hive</p>
-      <UserList />
+    <div className="bg-background w-full h-full">
+      <LandingPage />
     </div>
   );
 }
