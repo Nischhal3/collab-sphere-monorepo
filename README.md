@@ -46,6 +46,24 @@
 3. From root directory use this command to deploy the product
 - podman-compose -f compose.yml up -d
 
+## Initialize the Database Tables (if they don't exist)
+1. Under server/src folder create file config.local.json (add this file inside .gitignore as well) & and following content inside it <br>  
+```json
+{
+  "db": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD",
+    "database": "YOUR_DATABASE_NAME"
+  }
+}
+```
 
+2. From root folder run following commands:
+```bash
+cd postgres
+chmod +x init_db.sh
+./init_db.sh
+```
 
-  
