@@ -8,9 +8,10 @@ interface HeaderProps {
     label: string;
     path: string;
   }[];
+  toggleLogin: () => void;
 }
 
-const Header: FC<HeaderProps> = ({ navItems }) => {
+const Header: FC<HeaderProps> = ({ navItems, toggleLogin }) => {
   return (
     <header className="flex justify-between items-center p-2 border-b border-gray text-darkNavy ">
       <div className="flex items-center gap-44">
@@ -28,8 +29,9 @@ const Header: FC<HeaderProps> = ({ navItems }) => {
         </nav>
       </div>
       <Button
-        label="Login"
         size="medium"
+        label="Login"
+        onClick={toggleLogin}
         borderColor="border-gray"
         textColor="text-darkNavy"
       >

@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+
+import Login from "./pages/auth/Login";
+import Home from "./pages/landing/Home";
+import Register from "./pages/auth/Register";
 import Header from "./components/layout/Header";
-import Home from "./pages/Home";
-import Features from "./pages/Features";
-import Solutions from "./pages/Solutions";
-import Resources from "./pages/Resources";
+import Features from "./pages/landing/Features";
+import Solutions from "./pages/landing/Solutions";
+import Resources from "./pages/landing/Resources";
 
 const App = () => {
   const navItems = [
@@ -12,9 +16,33 @@ const App = () => {
     { label: "Solutions", path: "/solutions", element: <Solutions /> },
     { label: "Resources", path: "/resources", element: <Resources /> },
   ];
+
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+
+  const toggleLoginForm = () => {
+    setShowLoginForm((prev) => !prev);
+  };
+
+  const toggleRegisterForm = () => {
+    setShowRegisterForm((prev) => !prev);
+  };
+
   return (
     <div className="bg-white w-full h-full">
-      <Header navItems={navItems} />
+      <Header navItems={navItems} toggleLogin={toggleLoginForm} />
+      {showRegisterForm && (
+        <Register
+          toggleLoginForm={toggleLoginForm}
+          toggleRegisterForm={toggleRegisterForm}
+        />
+      )}
+      {showLoginForm && (
+        <Login
+          toggleLoginForm={toggleLoginForm}
+          toggleRegisterForm={toggleRegisterForm}
+        />
+      )}
       <main className="flex-1">
         <Routes>
           {navItems.map((item) => (

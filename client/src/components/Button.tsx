@@ -3,12 +3,13 @@ import React from "react";
 type ButtonSize = "small" | "medium" | "large";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-  color?: string;
+  label?: string;
   cursor?: string;
+  bgColor?: string;
   size?: ButtonSize;
   textColor?: string;
   borderColor?: string;
+  children?: React.ReactNode;
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -20,10 +21,12 @@ const sizeClasses: Record<ButtonSize, string> = {
 const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
+  children,
   className = "",
   size = "medium",
+  type = "button",
   disabled = false,
-  color = "bg-white",
+  bgColor = "bg-white",
   textColor = "text-black",
   cursor = "cursor-pointer",
   borderColor = "border-black",
@@ -33,14 +36,15 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${color} ${cursor} ${textColor} border ${borderColor} rounded ${sizeClass} ${className} ${
-        disabled ? "opacity-75 cursor-not-allowed" : ""
+      className={`${bgColor} ${textColor} border ${borderColor} rounded ${sizeClass} ${className} ${
+        disabled ? "opacity-75 cursor-not-allowed" : cursor
       }`}
       {...props}
     >
-      {label}
+      {children ?? label}
     </button>
   );
 };
